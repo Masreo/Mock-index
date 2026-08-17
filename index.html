@@ -2,241 +2,73 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sanderson Plumbing &amp; Heating | Fast, Trusted Callouts</title>
-<meta name="description" content="Sanderson Plumbing & Heating: emergency callouts, boiler repairs and bathroom installs. Fully insured, upfront pricing, usually out within the hour." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
-  :root {
-    --ink: #1a1d1f;
-    --ink-soft: #34393d;
-    --steel: #5c6670;
-    --paper: #f4f1ea;
-    --paper-dim: #e9e4d8;
-    --copper: #d4551f;
-    --copper-deep: #a83f14;
-  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--paper); line-height: 1.6; overflow-x: hidden; }
-  h1, h2, h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.05; text-wrap: balance; }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; }
-  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 6%; }
+  body { width: 720px; font-family: "Comic Sans MS", "Comic Sans", cursive; color: #3a1a1a; background: #ffe1ec; }
 
-  /* signature: hazard-stripe rule, used sparingly */
-  .stripe-rule { height: 8px; background: repeating-linear-gradient(-45deg, var(--copper) 0 14px, var(--ink) 14px 28px); }
+  header { background: #ff2d78; padding: 18px; text-align: center; }
+  header .logo { color: #ffe600; font-size: 26px; font-weight: bold; text-shadow: 2px 2px 0 #3a1a1a; }
+  nav { background: #3a1a1a; padding: 8px; text-align: center; }
+  nav a { color: #ffe600; text-decoration: underline; font-size: 13px; margin: 0 10px; }
 
-  header { background: var(--ink); padding: 16px 6%; display: flex; align-items: center; justify-content: space-between; }
-  .logo { color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 22px; text-transform: uppercase; letter-spacing: 0.02em; }
-  .logo span { color: var(--copper); }
-  nav { display: flex; gap: 28px; }
-  nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
-  .call-btn { background: var(--copper); color: #fff; padding: 10px 20px; font-weight: 700; font-size: 13px; text-decoration: none; letter-spacing: 0.03em; text-transform: uppercase; }
+  .hero { padding: 36px 50px; background: #ffb6c9; text-align: center; }
+  .hero h1 { font-size: 24px; color: #ff2d78; margin-bottom: 10px; }
+  .hero p { font-size: 13px; color: #3a1a1a; }
 
-  .hero { background: var(--ink); color: #fff; padding: 64px 6% 76px; position: relative; }
-  .hero-grid { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--copper); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 14px; margin-bottom: 22px; }
-  .hero h1 { color: #fff; font-size: clamp(38px, 6vw, 64px); margin-bottom: 18px; }
-  .hero h1 em { color: var(--copper); font-style: normal; }
-  .hero p { color: rgba(255,255,255,0.72); font-size: 17px; max-width: 460px; margin-bottom: 30px; }
-  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
-  .btn-copper { background: var(--copper); color: #fff; padding: 15px 30px; font-weight: 700; text-decoration: none; font-size: 14px; letter-spacing: 0.03em; text-transform: uppercase; }
-  .btn-ghost { border: 1.5px solid rgba(255,255,255,0.4); color: #fff; padding: 15px 30px; font-weight: 700; text-decoration: none; font-size: 14px; letter-spacing: 0.03em; text-transform: uppercase; }
+  .content { padding: 26px 50px; }
+  .content h2 { font-size: 18px; color: #ff2d78; margin-bottom: 10px; }
+  .content p { font-size: 13px; line-height: 1.5; color: #3a1a1a; margin-bottom: 16px; }
 
-  .response-card { background: var(--ink-soft); border: 1px solid rgba(255,255,255,0.1); padding: 32px; }
-  .response-card .label { font-size: 12px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 10px; }
-  .response-card .num { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 56px; color: var(--copper); line-height: 1; }
-  .response-card .unit { font-size: 15px; color: rgba(255,255,255,0.7); margin-left: 6px; }
-  .response-card .sub { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 10px; }
+  .gallery { display: flex; gap: 6px; padding: 0 50px 26px; }
+  .gallery img { width: 150px; height: 100px; object-fit: cover; }
 
-  .trust-row { background: var(--paper-dim); padding: 18px 6%; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
-  .trust-item { font-size: 13px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; color: var(--ink-soft); }
+  .order-btn { display: inline-block; background: #ffe600; color: #3a1a1a; padding: 10px 22px; font-weight: bold; text-decoration: none; border: 3px dashed #ff2d78; margin: 10px 0; }
 
-  .section { padding: 72px 6%; max-width: 1140px; margin: 0 auto; }
-  .section-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--copper); margin-bottom: 10px; }
-  .section h2 { font-size: clamp(26px, 3.4vw, 36px); margin-bottom: 36px; }
-
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 2px; background: var(--ink); }
-  .service-card { background: var(--paper); padding: 30px 26px; }
-  .service-card .n { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 15px; color: var(--copper); margin-bottom: 12px; }
-  .service-card h3 { font-size: 19px; margin-bottom: 8px; text-transform: none; }
-  .service-card p { font-size: 14px; color: var(--steel); }
-
-  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
-  .gallery img { width: 100%; height: 170px; object-fit: cover; }
-
-  .reviews { background: var(--ink); color: #fff; }
-  .reviews .section-eyebrow { color: var(--copper); }
-  .reviews h2 { color: #fff; }
-  .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: rgba(255,255,255,0.12); }
-  .review-card { background: var(--ink); padding: 26px; }
-  .review-stars { color: var(--copper); font-size: 14px; margin-bottom: 12px; letter-spacing: 2px; }
-  .review-card p { font-size: 14.5px; color: rgba(255,255,255,0.82); margin-bottom: 14px; }
-  .review-name { font-size: 12.5px; color: rgba(255,255,255,0.5); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-
-  .cta-band { text-align: center; padding: 72px 6%; }
-  .cta-band h2 { margin-bottom: 14px; }
-  .cta-band p { color: var(--steel); margin-bottom: 26px; font-size: 16px; }
-
-  footer { background: var(--ink); color: rgba(255,255,255,0.5); text-align: center; padding: 26px; font-size: 12px; }
-
-  [data-reveal] { will-change: transform, opacity; }
-
-  @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 700px) {
-    nav { display: none; }
-    .gallery { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  footer { background: #3a1a1a; color: #ffb6c9; text-align: center; padding: 14px; font-size: 11px; }
 </style>
 </head>
 <body>
 
-<div class="stripe-rule"></div>
 <header>
-  <div class="logo">Sanderson <span>P&amp;H</span></div>
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <a href="tel:01482555042" class="call-btn">01482 555 042</a>
+  <div class="logo">ROSIE'S BAKE HOUSE</div>
 </header>
+<nav>
+  <a href="#menu">Menu</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-<section class="hero">
-  <div class="hero-grid">
-    <div>
-      <span class="hero-badge">24hr emergency callout</span>
-      <h1>Leak, no heating, or a boiler on the blink? <em>We're on it.</em></h1>
-      <p>Local plumbing and heating, done properly. Fully insured engineers, honest pricing before we start, and we actually turn up when we say we will.</p>
-      <div class="hero-ctas">
-        <a href="tel:01482555042" class="btn-copper">Call now</a>
-        <a href="#contact" class="btn-ghost">Request a callback</a>
-      </div>
-    </div>
-    <div class="response-card" data-reveal>
-      <div class="label">Average response time</div>
-      <div><span class="num" data-count="47">0</span><span class="unit">minutes</span></div>
-      <div class="sub">Based on callouts in the last 90 days</div>
-    </div>
-  </div>
-</section>
-
-<div class="trust-row">
-  <div class="trust-item">Fully insured</div>
-  <div class="trust-item">4.8 average rating</div>
-  <div class="trust-item">Same-week callouts</div>
-  <div class="trust-item">Upfront pricing</div>
+<div class="hero">
+  <h1>Home Baked Treats Made Fresh</h1>
+  <p>Cakes, cookies and everything in between. Order today!</p>
+  <a href="#" class="order-btn">ORDER NOW</a>
 </div>
 
-<section class="section" id="services">
-  <p class="section-eyebrow">What we do</p>
-  <h2>Straightforward plumbing and heating</h2>
-  <div class="services-grid">
-    <div class="service-card" data-reveal>
-      <div class="n">01</div>
-      <h3>Boiler repairs &amp; installs</h3>
-      <p>All major brands, fast diagnosis, and a price before any work begins, no surprises.</p>
-    </div>
-    <div class="service-card" data-reveal>
-      <div class="n">02</div>
-      <h3>Emergency callouts</h3>
-      <p>Burst pipe or no heating, we aim to be with you the same day, seven days a week.</p>
-    </div>
-    <div class="service-card" data-reveal>
-      <div class="n">03</div>
-      <h3>Bathrooms &amp; radiators</h3>
-      <p>Full refits and radiator upgrades, planned properly and fitted with minimal mess.</p>
-    </div>
-  </div>
-</section>
+<div class="content" id="menu">
+  <h2>Our Menu</h2>
+  <p>Cupcakes, celebration cakes, cookies and traybakes, all made from scratch in small batches. Something for every occasion.</p>
 
-<section class="section" style="padding-top:0;">
-  <p class="section-eyebrow">Recent work</p>
-  <h2>Jobs we've finished this month</h2>
   <div class="gallery">
-    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7" alt="Newly installed combi boiler in a utility room" width="360" height="170" data-reveal />
-    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7" alt="Modern bathroom with new radiator and fittings" width="360" height="170" data-reveal />
-    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7" alt="Engineer completing a boiler service check" width="360" height="170" data-reveal />
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7">
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7">
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7">
   </div>
-</section>
 
-<section class="section reviews" id="reviews">
-  <p class="section-eyebrow">Word of mouth</p>
-  <h2>What customers say</h2>
-  <div class="review-grid">
-    <div class="review-card" data-reveal>
-      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p>"Out within two hours for a burst pipe on a Sunday. Fair price, no messing about."</p>
-      <div class="review-name">Karen H.</div>
-    </div>
-    <div class="review-card" data-reveal>
-      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p>"Replaced our boiler and explained every step. Tidy work, no hidden costs."</p>
-      <div class="review-name">Tom R.</div>
-    </div>
-    <div class="review-card" data-reveal>
-      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9730;</div>
-      <p>"Good work on our bathroom install, took a day longer than quoted but kept us updated."</p>
-      <div class="review-name">Priya S.</div>
-    </div>
-  </div>
-</section>
+  <h2>Why Choose Us</h2>
+  <p>Every order is made by hand with love, using the best ingredients we can find. No shortcuts, ever.</p>
+  <p>We've been baking for the local area for years and pride ourselves on quality and care.</p>
 
-<section class="cta-band" id="contact" data-reveal>
-  <h2>Need a plumber you can actually trust?</h2>
-  <p>Call now or request a callback and we'll get back to you the same day.</p>
-  <a href="tel:01482555042" class="btn-copper" style="color:#fff;">Call 01482 555 042</a>
-</section>
+  <h2 id="about">About Rosie</h2>
+  <p>Rosie started baking from her home kitchen and has grown into a small but mighty bakery. Every treat is still made the same way it always has been.</p>
 
-<div class="stripe-rule"></div>
+  <h2 id="contact">Contact</h2>
+  <p>Message us to place an order or ask about custom cakes for your next event.</p>
+  <a href="#" class="order-btn">ORDER NOW</a>
+</div>
+
 <footer>
-  &copy; Sanderson Plumbing &amp; Heating
+  &copy; Rosie's Bake House
 </footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script>
-  gsap.registerPlugin(ScrollTrigger);
-
-  let mm = gsap.matchMedia();
-  mm.add({ reduceMotion: "(prefers-reduced-motion: reduce)" }, (context) => {
-    const { reduceMotion } = context.conditions;
-
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    tl.from(".hero-badge", { autoAlpha: 0, y: 14, duration: reduceMotion ? 0 : 0.6 })
-      .from(".hero h1", { autoAlpha: 0, y: 22, duration: reduceMotion ? 0 : 0.7 }, "-=0.35")
-      .from(".hero p", { autoAlpha: 0, y: 16, duration: reduceMotion ? 0 : 0.6 }, "-=0.4")
-      .from(".hero-ctas a", { autoAlpha: 0, y: 12, duration: reduceMotion ? 0 : 0.5, stagger: 0.1 }, "-=0.35")
-      .from(".response-card", { autoAlpha: 0, x: 24, duration: reduceMotion ? 0 : 0.7 }, "-=0.5");
-
-    if (!reduceMotion) { gsap.set("[data-reveal]:not(.response-card)", { opacity: 0, y: 22 }); }
-    ScrollTrigger.batch("[data-reveal]:not(.response-card)", {
-      start: "top 88%",
-      onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: reduceMotion ? 0 : 0.7, ease: "power2.out", stagger: 0.08 }),
-      once: true
-    });
-
-    const counter = document.querySelector(".num");
-    if (counter) {
-      const target = parseInt(counter.dataset.count, 10);
-      const obj = { val: 0 };
-      gsap.to(obj, {
-        val: target,
-        duration: reduceMotion ? 0 : 1.4,
-        delay: reduceMotion ? 0 : 0.9,
-        ease: "power2.out",
-        onUpdate: () => { counter.textContent = Math.round(obj.val); }
-      });
-    }
-  });
-</script>
 
 </body>
 </html>
