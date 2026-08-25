@@ -2,35 +2,54 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bloom Hair &amp; Beauty | Hair, Nails &amp; Skin Salon</title>
+<meta name="description" content="Bloom Hair & Beauty offers cuts, colour, nails and skin treatments in a relaxed, friendly salon. Book your appointment online today." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
+  :root {
+    --blush: #f6dfe4;
+    --rose: #b5677a;
+    --deep: #4a2536;
+    --cream: #fffaf7;
+    --gold: #c9a06a;
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { width: 720px; font-family: Georgia, "Times New Roman", serif; color: #333; background: #fceef0; }
+  body { font-family: 'Jost', sans-serif; color: var(--deep); background: var(--cream); line-height: 1.6; }
+  h1, h2 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
 
-  header { background: #7a3b52; padding: 18px; text-align: center; }
-  header .logo { color: #f4c9d6; font-size: 24px; font-weight: bold; letter-spacing: 1px; }
-  nav { background: #5c2c40; padding: 8px; text-align: center; }
-  nav a { color: #f4c9d6; text-decoration: underline; font-size: 12px; margin: 0 10px; font-family: Georgia, serif; }
+  header { padding: 20px 28px; text-align: center; border-bottom: 1px solid rgba(74,37,54,0.08); }
+  .logo { font-size: 19px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--deep); }
+  nav { padding: 10px; text-align: center; background: var(--blush); }
+  nav a { color: var(--deep); text-decoration: none; font-size: 12.5px; margin: 0 14px; letter-spacing: 0.04em; }
+  nav a:hover { color: var(--rose); }
 
-  .hero { padding: 34px 50px; background: #f4c9d6; text-align: center; }
-  .hero h1 { font-size: 22px; color: #5c2c40; margin-bottom: 10px; }
-  .hero p { font-size: 12px; color: #5c2c40; }
+  .hero { padding: 56px 28px 44px; text-align: center; background: var(--blush); }
+  .hero .eyebrow { font-size: 11.5px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose); margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(28px, 6vw, 40px); margin-bottom: 14px; }
+  .hero p { font-size: 15px; color: rgba(74,37,54,0.75); max-width: 420px; margin: 0 auto 22px; }
+  .book-btn { display: inline-block; background: var(--deep); color: #fff; padding: 13px 30px; font-weight: 500; text-decoration: none; border-radius: 4px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .book-btn:hover { background: var(--rose); }
 
-  .content { padding: 26px 50px; }
-  .content h2 { font-size: 17px; color: #7a3b52; margin-bottom: 10px; }
-  .content p { font-size: 12.5px; line-height: 1.5; color: #333; margin-bottom: 16px; }
+  .content { padding: 44px 28px; max-width: 640px; margin: 0 auto; }
+  .content h2 { font-size: 24px; margin-bottom: 12px; color: var(--deep); }
+  .content p { font-size: 14.5px; line-height: 1.65; color: rgba(74,37,54,0.8); margin-bottom: 18px; }
 
-  .gallery { display: flex; gap: 6px; padding: 0 50px 26px; }
-  .gallery img { width: 150px; height: 100px; object-fit: cover; }
+  .gallery { display: flex; gap: 10px; padding: 0 28px 44px; max-width: 640px; margin: 0 auto; }
+  .gallery > div { width: 100%; height: 110px; border-radius: 6px; background-size: cover; }
+  .gallery > div:nth-child(1) { background: linear-gradient(160deg, #e3b6c2, #b5677a); }
+  .gallery > div:nth-child(2) { background: linear-gradient(160deg, #d9c3a3, #c9a06a); }
+  .gallery > div:nth-child(3) { background: linear-gradient(160deg, #ecd7db, #d19bad); }
 
-  .book-btn { display: inline-block; background: #c9a0ae; color: #fff; padding: 10px 22px; font-weight: bold; text-decoration: none; border: 2px solid #5c2c40; margin: 10px 0; font-size: 12px; }
-
-  footer { background: #5c2c40; color: #f4c9d6; text-align: center; padding: 14px; font-size: 10.5px; }
+  footer { text-align: center; padding: 32px 28px; font-size: 12px; color: rgba(74,37,54,0.55); border-top: 1px solid rgba(74,37,54,0.08); }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">BLOOM HAIR &amp; BEAUTY</div>
+  <div class="logo">Bloom Hair &amp; Beauty</div>
 </header>
 <nav>
   <a href="#services">Services</a>
@@ -38,37 +57,39 @@
   <a href="#contact">Contact</a>
 </nav>
 
-<div class="hero">
-  <h1>Look Good, Feel Good</h1>
-  <p>Hair, nails and beauty treatments in a relaxed setting. Book your appointment today!</p>
-  <a href="#" class="book-btn">BOOK NOW</a>
+<section class="hero">
+  <p class="eyebrow">Hair &middot; Nails &middot; Skin</p>
+  <h1>Look good. Feel good.</h1>
+  <p>Hair, nails and beauty treatments in a relaxed setting. Book your appointment online in under a minute.</p>
+  <a href="#book" class="book-btn">Book now</a>
+</section>
+
+<section class="content" id="services">
+  <h2>Our services</h2>
+  <p>Cuts, colour, styling, manicures, pedicures and skin treatments, tailored to you. Walk-ins welcome, but booking ahead is recommended.</p>
+</section>
+
+<div class="gallery">
+  <div role="img" aria-label="Salon interior with styling chairs"></div>
+  <div role="img" aria-label="Client receiving a manicure"></div>
+  <div role="img" aria-label="Hair colour treatment in progress"></div>
 </div>
 
-<div class="content" id="services">
-  <h2>Our Services</h2>
-  <p>Cuts, colour, styling, manicures, pedicures and skin treatments, tailored to you. Walk-ins welcome, but booking ahead is recommended.</p>
-
-  <div class="gallery">
-    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7">
-    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7">
-    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7">
-  </div>
-
-  <h2>Why Choose Us</h2>
+<section class="content" id="about">
+  <h2>Why choose us</h2>
   <p>Our stylists have over 15 years combined experience and use premium products for lasting results.</p>
   <p>We've built a loyal client base across the local area and pride ourselves on friendly, personal service.</p>
-
-  <h2 id="about">About The Salon</h2>
+  <h2>About the salon</h2>
   <p>Bloom opened its doors five years ago with a simple aim: make every client feel like their best self. Same values, same team, still going strong.</p>
+</section>
 
-  <h2 id="contact">Contact</h2>
-  <p>Call us or pop in to book your next appointment.</p>
-  <a href="#" class="book-btn">BOOK NOW</a>
-</div>
+<section class="content" id="contact">
+  <h2>Book your visit</h2>
+  <p>Call us, message us, or book online, whichever's easiest for you.</p>
+  <a href="#book" id="book" class="book-btn">Book now</a>
+</section>
 
-<footer>
-  &copy; Bloom Hair &amp; Beauty
-</footer>
+<footer>&copy; 2026 Bloom Hair &amp; Beauty.</footer>
 
 </body>
 </html>
