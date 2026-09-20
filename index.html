@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marsh Lane Plumbing & Heating — Covering the Whole UK</title>
 <meta name="description" content="Marsh Lane Plumbing & Heating — trusted plumbing and heating services covering the whole UK. Get a free quote today.">
+<meta name="theme-color" content="#0f2438">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -22,6 +23,7 @@
     --orange-deep: #cf4f1d;
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   }
+  :root{ color-scheme: light; }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
@@ -55,13 +57,33 @@
   }
   .nav-links{display:flex; gap:34px; font-weight:600; font-size:14.5px; color:var(--ink-soft);}
   .nav-links a{transition:color 160ms ease;}
-  .nav-links a:hover{color:var(--navy);}
   .nav-cta{
     background:var(--orange); color:var(--white); font-weight:700; font-size:14px;
     padding:11px 22px; border-radius:8px; transition:transform 160ms var(--ease-out), background 160ms ease;
   }
   .nav-cta:active{transform:scale(0.97);}
-  .nav-cta:hover{background:var(--orange-deep);}
+  @media (hover:hover) and (pointer:fine){
+    .nav-links a:hover{color:var(--navy);}
+    .nav-cta:hover{background:var(--orange-deep);}
+  }
+  .nav-toggle{
+    display:none; width:38px; height:38px; border-radius:9px; border:1px solid var(--line);
+    background:var(--white); align-items:center; justify-content:center; cursor:pointer;
+  }
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+    content:''; display:block; width:18px; height:2px; background:var(--navy); position:relative;
+    transition:transform 160ms var(--ease-out), opacity 160ms ease;
+  }
+  .nav-toggle span::before{position:absolute; top:-6px;}
+  .nav-toggle span::after{position:absolute; top:6px;}
+  .mobile-nav{
+    display:none; flex-direction:column; gap:2px; padding:8px 32px 18px;
+    max-height:0; overflow:hidden; transition:max-height 260ms var(--ease-out);
+  }
+  .mobile-nav.open{max-height:260px;}
+  .mobile-nav a{
+    padding:12px 4px; font-weight:600; font-size:15px; color:var(--ink-soft); border-top:1px solid var(--line);
+  }
 
   /* Hero */
   .hero{
@@ -103,14 +125,16 @@
     box-shadow:0 14px 30px -12px rgba(232,98,44,0.55);
   }
   .btn-primary:active{transform:scale(0.97);}
-  .btn-primary:hover{background:var(--orange-deep);}
   .btn-ghost{
     background:rgba(255,255,255,0.08); color:var(--white); font-weight:700; font-size:15.5px;
     padding:15px 30px; border-radius:9px; border:1px solid rgba(255,255,255,0.18);
     transition:transform 160ms var(--ease-out), background 160ms ease;
   }
   .btn-ghost:active{transform:scale(0.97);}
-  .btn-ghost:hover{background:rgba(255,255,255,0.14);}
+  @media (hover:hover) and (pointer:fine){
+    .btn-primary:hover{background:var(--orange-deep);}
+    .btn-ghost:hover{background:rgba(255,255,255,0.14);}
+  }
 
   .stats{
     display:flex; justify-content:center; gap:56px; margin-top:64px; flex-wrap:wrap;
@@ -135,7 +159,9 @@
     background:var(--off); border:1px solid var(--line); border-radius:16px; padding:32px 28px;
     transition:transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
   }
-  .service-card:hover{transform:translateY(-4px); box-shadow:0 20px 40px -24px rgba(15,36,56,0.25);}
+  @media (hover:hover) and (pointer:fine){
+    .service-card:hover{transform:translateY(-4px); box-shadow:0 20px 40px -24px rgba(15,36,56,0.25);}
+  }
   .service-icon{
     width:48px; height:48px; border-radius:12px; background:linear-gradient(155deg, var(--steel-light), var(--navy));
     display:flex; align-items:center; justify-content:center; color:var(--white); font-size:20px; margin-bottom:18px;
@@ -146,6 +172,18 @@
   /* reveal */
   .reveal{opacity:0; transform:translateY(22px); transition:opacity 620ms var(--ease-out), transform 620ms var(--ease-out);}
   .reveal.in{opacity:1; transform:translateY(0);}
+  .services-grid .reveal:nth-child(3n+2), .gallery-grid .reveal:nth-child(3n+2), .reviews-grid .reveal:nth-child(3n+2){transition-delay:60ms;}
+  .services-grid .reveal:nth-child(3n+3), .gallery-grid .reveal:nth-child(3n+3), .reviews-grid .reveal:nth-child(3n+3){transition-delay:120ms;}
+
+  /* Hero entrance */
+  .hero-in{opacity:0; transform:translateY(16px); animation:hero-settle 520ms var(--ease-out) forwards;}
+  @keyframes hero-settle{ to{ opacity:1; transform:translateY(0); } }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal, .hero-in{transition-duration:200ms !important; animation-duration:200ms !important; transform:none !important;}
+    .service-card{transition:none;}
+  }
 
   /* Quote form */
   .quote{background:var(--navy); color:var(--white);}
@@ -178,7 +216,9 @@
     font-family:'Manrope',sans-serif;
   }
   #quote-submit:active{transform:scale(0.97);}
-  #quote-submit:hover{background:var(--orange-deep);}
+  @media (hover:hover) and (pointer:fine){
+    #quote-submit:hover{background:var(--orange-deep);}
+  }
 
   /* Gallery */
   .gallery{background:var(--white);}
@@ -218,6 +258,8 @@
     .foot-grid{grid-template-columns:1fr;}
     .hero h1{font-size:38px;}
     .nav-links{display:none;}
+    .nav-toggle{display:flex;}
+    .mobile-nav{display:flex;}
   }
 </style>
 </head>
@@ -233,19 +275,26 @@
       <a href="#reviews">Reviews</a>
     </div>
     <a class="nav-cta" href="#quote">Free Quote</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span></button>
   </nav>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#services">Services</a>
+    <a href="#quote">Get a Quote</a>
+    <a href="#work">Our Work</a>
+    <a href="#reviews">Reviews</a>
+  </div>
 </header>
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="badge"><span class="dot"></span> 24/7 Emergency Call-Outs</div>
-    <h1>Plumbing & heating you can rely on — <span class="coverage-line">covering the whole UK.</span></h1>
-    <p class="sub">Gas Safe registered engineers for boiler repairs, installations, and emergency call-outs. Fast, fair, and fully insured.</p>
-    <div class="hero-actions">
+    <div class="badge hero-in" style="animation-delay:0ms"><span class="dot"></span> 24/7 Emergency Call-Outs</div>
+    <h1 class="hero-in" style="animation-delay:60ms">Plumbing & heating you can rely on — <span class="coverage-line">covering the whole UK.</span></h1>
+    <p class="sub hero-in" style="animation-delay:120ms">Gas Safe registered engineers for boiler repairs, installations, and emergency call-outs. Fast, fair, and fully insured.</p>
+    <div class="hero-actions hero-in" style="animation-delay:180ms">
       <a class="btn-primary" href="#quote">Get a Free Quote</a>
       <a class="btn-ghost" href="#services">View Services</a>
     </div>
-    <div class="stats">
+    <div class="stats hero-in" style="animation-delay:240ms">
       <div class="stat"><div class="num">12+</div><div class="label">Years Trading</div></div>
       <div class="stat"><div class="num">4.8★</div><div class="label">Average Rating</div></div>
       <div class="stat"><div class="num">24/7</div><div class="label">Emergency Line</div></div>
@@ -276,7 +325,7 @@
     <div class="quote-grid">
       <div class="quote-copy reveal">
         <h2>Get a free, no-obligation quote</h2>
-        <p>Tell us what's going on and we'll get back to you with a fair, upfront price. No hidden fees, no pressure.</p>
+        <p>Tell us what’s going on and we’ll get back to you with a fair, upfront price. No hidden fees, no pressure.</p>
         <ul>
           <li>Response within 24 hours</li>
           <li>Fixed-price quotes, no surprises</li>
@@ -287,9 +336,9 @@
         <h3>Request Your Quote</h3>
         <div class="sub">Fill in your details below</div>
         <form id="quote-form">
-          <div class="field"><label>Full Name</label><input type="text" placeholder="Your name"></div>
-          <div class="field"><label>Phone Number</label><input type="tel" placeholder="07xxx xxxxxx"></div>
-          <div class="field"><label>What do you need help with?</label><textarea placeholder="Tell us about the job..."></textarea></div>
+          <div class="field"><label for="q-name">Full Name</label><input type="text" id="q-name" name="name" autocomplete="name" placeholder="Your name"></div>
+          <div class="field"><label for="q-phone">Phone Number</label><input type="tel" id="q-phone" name="phone" autocomplete="tel" placeholder="07xxx xxxxxx"></div>
+          <div class="field"><label for="q-message">What do you need help with?</label><textarea id="q-message" name="message" placeholder="Tell us about the job..."></textarea></div>
           <button type="button" id="quote-submit">Get My Quote</button>
         </form>
       </div>
@@ -305,12 +354,12 @@
       <p>A look at some of our recent installs and repairs across the region.</p>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item reveal"><img src="/assets/work-boiler-install.jpg" alt="Boiler installation"><div class="gallery-cap">Boiler Installation — Hull</div></div>
-      <div class="gallery-item reveal"><img src="/assets/work-bathroom-refit.jpg" alt="Bathroom refit"><div class="gallery-cap">Bathroom Refit</div></div>
-      <div class="gallery-item reveal"><img src="/assets/work-heating-upgrade.jpg" alt="Central heating upgrade"><div class="gallery-cap">Central Heating Upgrade</div></div>
-      <div class="gallery-item reveal"><img src="/assets/work-emergency-repair.jpg" alt="Emergency repair"><div class="gallery-cap">Emergency Repair</div></div>
-      <div class="gallery-item reveal"><img src="/assets/work-radiator-fit.jpg" alt="Radiator fitting"><div class="gallery-cap">Radiator Fitting</div></div>
-      <div class="gallery-item reveal"><img src="/assets/work-pipe-fix.jpg" alt="Pipe repair"><div class="gallery-cap">Burst Pipe Fix</div></div>
+      <div class="gallery-item reveal"><img src="/assets/work-boiler-install.jpg" alt="Boiler installation" width="400" height="300" loading="lazy"><div class="gallery-cap">Boiler Installation — Hull</div></div>
+      <div class="gallery-item reveal"><img src="/assets/work-bathroom-refit.jpg" alt="Bathroom refit" width="400" height="300" loading="lazy"><div class="gallery-cap">Bathroom Refit</div></div>
+      <div class="gallery-item reveal"><img src="/assets/work-heating-upgrade.jpg" alt="Central heating upgrade" width="400" height="300" loading="lazy"><div class="gallery-cap">Central Heating Upgrade</div></div>
+      <div class="gallery-item reveal"><img src="/assets/work-emergency-repair.jpg" alt="Emergency repair" width="400" height="300" loading="lazy"><div class="gallery-cap">Emergency Repair</div></div>
+      <div class="gallery-item reveal"><img src="/assets/work-radiator-fit.jpg" alt="Radiator fitting" width="400" height="300" loading="lazy"><div class="gallery-cap">Radiator Fitting</div></div>
+      <div class="gallery-item reveal"><img src="/assets/work-pipe-fix.jpg" alt="Pipe repair" width="400" height="300" loading="lazy"><div class="gallery-cap">Burst Pipe Fix</div></div>
     </div>
   </div>
 </section>
